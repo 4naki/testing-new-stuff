@@ -1,0 +1,34 @@
+@name GitHub HTTP Request Version Check Prototype
+@persist [Version Link]:string Block
+
+if(first()){
+    
+    Link = ""
+    VersionCheckLink = "https://raw.githubusercontent.com/4naki/testing-new-stuff/main/version%20test"
+    Version = "1.0"
+    
+    runOnHTTP(1)
+    if(Link!=""){
+    }else{
+        print("Link is empty!")
+        Block=1
+    }
+    if(VersionCheckLink!=""){
+        httpRequest(VersionCheckLink)
+    }else{
+        print("VersionCheckLink is empty!")
+        Block=1
+    }
+}
+if(httpSuccess()&!Block){
+    ReturnData=httpUrlDecode(httpData())
+    
+    print("["+entity():getName()+"]")
+    print("Running version: "+Version)
+    
+    if(Version!=ReturnData){
+        print("Update available!")
+        print("Latest version: "+ReturnData)
+        print("Link: "+Link)
+    }
+}
