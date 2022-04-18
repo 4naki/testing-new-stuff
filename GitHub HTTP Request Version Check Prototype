@@ -3,7 +3,7 @@
 
 if(first()){
     
-    Link = ""
+    Link = "https://github.com/4naki/testing-new-stuff/blob/main/GitHub%20HTTP%20Request%20Version%20Check%20Prototype"
     VersionCheckLink = "https://raw.githubusercontent.com/4naki/testing-new-stuff/main/version%20test"
     Version = "1.0"
     
